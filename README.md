@@ -235,6 +235,13 @@ HATEOAS is a key constraint in RESTful API design and ensures that resources are
 These status codes are part of the HTTP protocol and are used by servers to communicate the outcome of a request to the client. They help developers and users understand what happened during the request and how to proceed accordingly.
 
  - 200 - OK:
+ ```json
+   return response()->json([
+            'data'=> $data,
+            'message'=>"request has succeeded",
+            'code'=> 200
+         ]);
+```
 
 Indicates that the request has succeeded.
 It is typically used for successful GET requests or successful responses to POST, PUT, and DELETE requests.
