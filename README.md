@@ -13,7 +13,7 @@
 <br/>
 
 
-# Introduction <a name="introduction"></a>
+# Introduction <a name="guiding_principles"></a>
 
 <p>This is our RESTfull API Learning repository page. REST is an acronym for REpresentational State Transfer and an architectural style for distributed hypermedia systems. Roy Fielding first presented it in 2000 in his famous dissertation. Since then it has become one of the most widely used approaches for building web-based APIs (Application Programming Interfaces).
 
