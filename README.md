@@ -95,3 +95,23 @@ Route::resource('/product', ProductController::class);
 ```
 
  - This api  ` http://localhost:8000/api/product `
+
+
+ 
+### POST Method: 
+POST is the only RESTful API HTTP method that primarily operates on resource collections. When we menualy routing as like, 
+
+```bash
+Route::post('/product-store', [ProductController::class, 'store']);
+```
+ - This api  ` http://localhost:8000/api/product-store `
+
+
+
+Another for resource method as like 
+
+```bash
+Route::resource('/product', ProductController::class);
+```
+
+ - This api  ` http://localhost:8000/api/product-store `
