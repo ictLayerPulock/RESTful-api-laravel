@@ -11,6 +11,7 @@
 - [HATEOAS ](#hateoas)
 - [HTTP Status Codes ](#status_codes)
 - [Types of Versioning ](#types_versioning)
+- [Clear and consistent naming convention ](#naming_convention)
 
 
 
@@ -235,6 +236,13 @@ These status codes are part of the HTTP protocol and are used by servers to comm
 Indicates that the request has succeeded.
 It is typically used for successful GET requests or successful responses to POST, PUT, and DELETE requests.
 
+
+ - 302 Found Redirect Responses:
+
+These responses indicate that the client needs to take additional action to complete the request.
+Example: 301 Moved Permanently, 302 Found
+
+
  - 404 - Not Found:
 
 Indicates that the requested resource could not be found.
@@ -277,3 +285,20 @@ Accept-version: v2
 
 
 ### Versioning using “Accept” header
+
+
+
+
+
+
+ # Clear and consistent naming convention <a name="naming_convention"></a>
+
+Here are some important guidelines to follow when designing the naming conventions of your REST API:
+
+ - Use resource nouns: Focus on the resources you express and their relationships rather than specific activities. Use plural nouns (eg, /products, /users) to represent collections of resources and avoid using verbs (eg, /getProducts, /createUser).
+ - Keep URLs simple and predictable: Design URLs that are intuitive and easily understood by clients, using resource hierarchies to express relationships (eg, /users/{id}/orders).
+
+- Use lowercase letters
+- Nest resource if appropriate
+- Use hyphens to separate words
+- Avoid unnecessary abbreviations
