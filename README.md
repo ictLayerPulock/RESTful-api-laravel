@@ -122,7 +122,7 @@ Another for resource method as like
 Route::resource('/product', ProductController::class);
 ```
 
- - This api  ` http://localhost:8000/api/product-store `
+ - This api  ` http://localhost:8000/api/product `
 
 
   
@@ -142,7 +142,7 @@ Another for resource method as like
 Route::resource('/product', ProductController::class);
 ```
 
- - This api  ` http://localhost:8000/api/product-edit `
+ - This api  ` http://localhost:8000/api/product `
 
 
 ### PATCH Method: 
@@ -161,7 +161,7 @@ Another for resource method as like
 Route::resource('/product', ProductController::class);
 ```
 
- - This api  ` http://localhost:8000/api/product-update `
+ - This api  ` http://localhost:8000/api/product `
 
 
 ### DELETE Method: 
@@ -180,7 +180,7 @@ Another for resource method as like
 Route::resource('/product', ProductController::class);
 ```
 
- - This api  ` http://localhost:8000/api/product-delete `
+ - This api  ` http://localhost:8000/api/product `
 
 
 
