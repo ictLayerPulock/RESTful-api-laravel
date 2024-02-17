@@ -8,6 +8,8 @@
  - [Guiding Principles](#guiding_principles)
 - [Types of Method](#method_types)
 - [SetUp REST API](#setup_api)
+- [HATEOAS ](#hateoas)
+- [HTTP Status Codes ](#status_codes)
 
 
 
@@ -118,7 +120,66 @@ Route::resource('/product', ProductController::class);
  - This api  ` http://localhost:8000/api/product-store `
 
 
- 
+  
+### PUT Method: 
+Completely updates an existing resource by replacing it with new data. When we menualy routing as like, 
+
+```bash
+Route::put('/product-edit/{id}', [ProductController::class, 'edit']);
+```
+ - This api  ` http://localhost:8000/api/product-edit `
+
+
+
+Another for resource method as like 
+
+```bash
+Route::resource('/product', ProductController::class);
+```
+
+ - This api  ` http://localhost:8000/api/product-edit `
+
+
+### PATCH Method: 
+Partially updates a resource with specified changes. When we menualy routing as like, 
+
+```bash
+Route::patch('/product-update/{id}', [ProductController::class, 'update']);
+```
+ - This api  ` http://localhost:8000/api/product-update `
+
+
+
+Another for resource method as like 
+
+```bash
+Route::resource('/product', ProductController::class);
+```
+
+ - This api  ` http://localhost:8000/api/product-update `
+
+
+### DELETE Method: 
+The last HTTP method to examine is DELETE. When a DELETE method targets a single resource, that resource is removed entirely. When we menualy routing as like, 
+
+```bash
+Route::patch('/product-delete/{id}', [ProductController::class, 'delete']);
+```
+ - This api  ` http://localhost:8000/api/product-delete `
+
+
+
+Another for resource method as like 
+
+```bash
+Route::resource('/product', ProductController::class);
+```
+
+ - This api  ` http://localhost:8000/api/product-delete `
+
+
+
+
 # SetUp REST API <a name="setup_api"></a>
 
  - Identify Object
@@ -142,3 +203,46 @@ Now when the object model is ready, it’s time to decide the resource URIs.
   - Responses to PUT and DELETE requests are not cacheable at all.
 
  - Cache Control Headers
+
+
+ # HATEOAS - Hypermedia as an Engine of Application State <a name="hateoas"></a>
+
+HATEOAS is a key constraint in RESTful API design and ensures that resources are interconnected through hypermedia links
+
+```json
+{
+  "orderId": 12345,
+  "Total Amount": 99.99,
+  "_links": {
+    "self": {
+      "href": "https://api.example.com/orders/12345"
+    },
+    "buyer": {
+      "href": "https://api.example.com/customers/54321"
+    }
+  }
+}
+```
+
+
+ # HTTP Status Codes <a name="status_codes"></a>
+
+These status codes are part of the HTTP protocol and are used by servers to communicate the outcome of a request to the client. They help developers and users understand what happened during the request and how to proceed accordingly.
+
+ - 200 - OK:
+
+Indicates that the request has succeeded.
+It is typically used for successful GET requests or successful responses to POST, PUT, and DELETE requests.
+
+ - 404 - Not Found:
+
+Indicates that the requested resource could not be found.
+It is typically used when the server cannot find the requested resource or URL.
+
+ - 400 - Bad Request:
+
+Indicates that the server cannot process the request due to a client error.
+
+ - 500 - Internal Server Error:
+
+Indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
