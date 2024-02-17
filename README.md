@@ -52,13 +52,13 @@ br/>
 REST is short for “representational state transfer” and refers to an architectural style of API. The REST architecture has a set of characteristics that includes 
 
 ## SOAP (Simple Object Access Protocol)
-SOAP (short for Simple Object Access Protocol) APIs are among the original web services, dating back to Web 1.0 days. However, SOAP APIs are still widely used by enterprises and government systems due to SOAP’s strict, more defined security protocols. Most businesses today would benefit more from the flexibility, simplicity, and reduced bandwidth REST Provides.  
+SOAP (short for Simple Object Access Protocol) APIs are among the original web services, dating back to Web 1.0 days. 
 
 ## XML-RPC
-XML stands for “Extensible Markup Language,” and RPC stands for “Remote Procedure Call.” XML-RPC uses XML to encode API calls and HTTP to transport them.   The use of the XML format is designed to be both human and machine-readable, which could be useful if you have minimal code knowledge and are willing to learn more. WordPress is one company that makes use of XML-RPC in its platform. 
+XML stands for “Extensible Markup Language,” and RPC stands for “Remote Procedure Call.” XML-RPC uses XML to encode API calls and HTTP to transport them. 
 
 ## JSON-RPC
-This is a similar protocol to XML-RPC except for the use of JSON instead of XML. JSON is short for “JavaScript Object Notation” and is similar in that it’s relatively simple to read by humans. It provides maximum browser compatibility and is simpler to implement and use.   Unlike REST and SOAP, both XML-RPC and JSON-RPC can initiate processes on the server. That means they can run scripts, launch applications, start data transfers, and other actions on the server. Not surprisingly, this raises some security concerns. For this reason, you most often see the RPC-style APIs used in internal systems, where there is no concern about external threats.  
+This is a similar protocol to XML-RPC except for the use of JSON instead of XML.
 
 
 # Guiding Principles <a name="guiding_principles"></a>
@@ -140,3 +140,5 @@ Now when the object model is ready, it’s time to decide the resource URIs.
   - GET requests should be cachable by default – until a special condition arises. Usually, browsers treat all GET requests as cacheable.
   - POST requests are not cacheable by default but can be made cacheable if either an Expires header or a Cache-Control header with a directive, to explicitly allows caching, is added to the response.
   - Responses to PUT and DELETE requests are not cacheable at all.
+
+ - Cache Control Headers
