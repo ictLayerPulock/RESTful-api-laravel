@@ -9,10 +9,11 @@
 - [Types of Method](#method_types)
 - [SetUp REST API](#setup_api)
 - [HATEOAS ](#hateoas)
+- [Proper HTTP Headers ](#http_header)
 - [HTTP Status Codes ](#status_codes)
 - [Types of Versioning ](#types_versioning)
 - [Clear and consistent naming convention ](#naming_convention)
-- [Stateless Communications](#stateless_communications)
+- [Stateless](#stateless_communications)
 - [Layered systems](#layered_systems)
 - [Cacheability systems](#cacheability_systems)
 
@@ -230,6 +231,13 @@ HATEOAS is a key constraint in RESTful API design and ensures that resources are
 ```
 
 
+ # Proper HTTP Headers <a name="http_header"></a>
+
+- For Additional Info, Cache-Control and Security.
+- Example: Content-Type, Accept, Authorization, etc
+
+
+
  # HTTP Status Codes <a name="status_codes"></a>
 
 These status codes are part of the HTTP protocol and are used by servers to communicate the outcome of a request to the client. They help developers and users understand what happened during the request and how to proceed accordingly.
@@ -315,7 +323,7 @@ Here are some important guidelines to follow when designing the naming conventio
 - Avoid unnecessary abbreviations
 
 
- # Stateless Communications <a name="stateless_communications"></a>
+ # Stateless <a name="stateless_communications"></a>
 
 Server endpoints created from customer designs promote stateless communication by ensuring that they are independent of any client context. This makes it easy to scale web services and handle growing requests.
 
