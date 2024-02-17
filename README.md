@@ -307,7 +307,8 @@ Here are some important guidelines to follow when designing the naming conventio
 
  - Use resource nouns: Focus on the resources you express and their relationships rather than specific activities. Use plural nouns (eg, /products, /users) to represent collections of resources and avoid using verbs (eg, /getProducts, /createUser).
  - Keep URLs simple and predictable: Design URLs that are intuitive and easily understood by clients, using resource hierarchies to express relationships (eg, /users/{id}/orders).
-
+ 
+ - Plural Nouns for Collections: Use plural nouns to show collection of resources. Example, /users NOT  /user.
 - Use lowercase letters
 - Nest resource if appropriate
 - Use hyphens to separate words
