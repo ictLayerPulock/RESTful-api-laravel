@@ -13,7 +13,8 @@
 - [Types of Versioning ](#types_versioning)
 - [Clear and consistent naming convention ](#naming_convention)
 - [Stateless Communications](#stateless_communications)
-- [Cacheability and layered systems](#layered_systems)
+- [Layered systems](#layered_systems)
+- [Cacheability systems](#cacheability_systems)
 
 
 
@@ -311,6 +312,26 @@ Here are some important guidelines to follow when designing the naming conventio
 Server endpoints created from customer designs promote stateless communication by ensuring that they are independent of any client context. This makes it easy to scale web services and handle growing requests.
 
 
- # Cacheability and layered systems <a name="layered_systems"></a>
+ # Layered systems <a name="layered_systems"></a>
 
-Encourages a layered approach to cacheability and system architecture by enabling clients to use caching mechanisms. This results in optimized performance and reduced load on the server.
+A layered system architecture separates concerns into different layers, such as the user interface, business logic, and data access layers in a typical N-tier web application.
+
+
+
+ # Cacheability systems <a name="cacheability_systems"></a>
+
+Caching is the ability to store copies of frequently accessed data in several places along the request-response path.
+
+```php
+
+use App\Models\Product;
+use Illuminate\Support\Facades\Cache;
+
+....
+
+    public function index(){
+       return Cache::remember('cases', 60, function(){
+        return Product::all();
+       });
+    }
+```
