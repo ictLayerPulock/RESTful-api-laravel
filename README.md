@@ -307,23 +307,7 @@ Indicates that the server encountered an unexpected condition that prevented it 
 
  - Alternatives include dates, project names, seasons, or other identifiers that are meaningful enough to the team producing the APIs and flexible enough to change as the versions change.
 
- ### Versioning using Custom Request Header
-
-  - A custom header (e.g. Accept-version) allows you to preserve your URIs between versions though it is effectively a duplicate of the content negotiation behavior implemented by the existing Accept header.
-
- ```bash 
-Accept-version: v1
-Accept-version: v2
-
- ```
-
-
-### Versioning using “Accept” header
-
-
-
-
-
+ 
 
  # Clear and consistent naming convention <a name="naming_convention"></a>
 
