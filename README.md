@@ -7,6 +7,7 @@
 - [API Architecture Types](#architecture_types)
  - [Guiding Principles](#guiding_principles)
 - [Types of Method](#method_types)
+- [SetUp REST API](#setup_api)
 
 
 
@@ -115,3 +116,20 @@ Route::resource('/product', ProductController::class);
 ```
 
  - This api  ` http://localhost:8000/api/product-store `
+
+
+ 
+# SetUp REST API <a name="setup_api"></a>
+
+ - Identify Object
+ The first step in designing a REST API-based application is identifying the objects that will be presented as resources.
+
+  - Create Model URIs
+Now when the object model is ready, it’s time to decide the resource URIs. 
+
+```bash
+
+/product
+/product/{id}
+
+```
