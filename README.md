@@ -124,7 +124,7 @@ Route::resource('/product', ProductController::class);
  - Identify Object
  The first step in designing a REST API-based application is identifying the objects that will be presented as resources.
 
-  - Create Model URIs
+ - Create Model URIs
 Now when the object model is ready, it’s time to decide the resource URIs. 
 
 ```bash
@@ -133,3 +133,10 @@ Now when the object model is ready, it’s time to decide the resource URIs.
 /product/{id}
 
 ```
+
+ - Caching in REST APIs
+ Being cacheable is one of the architectural constraints of REST.
+
+  - GET requests should be cachable by default – until a special condition arises. Usually, browsers treat all GET requests as cacheable.
+  - POST requests are not cacheable by default but can be made cacheable if either an Expires header or a Cache-Control header with a directive, to explicitly allows caching, is added to the response.
+  - Responses to PUT and DELETE requests are not cacheable at all.
