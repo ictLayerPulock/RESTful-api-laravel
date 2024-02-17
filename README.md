@@ -1,22 +1,17 @@
 
-<img  align="center" src="./images/sl1.png" width="900" title="Self Learing image"/>
-
- <br/>
- 
----
-  <br/>
 
 # Table of Contents
 
 - [Introduction](#introduction)
 - [Guiding Principles](#guiding_principles)
-  - [Using the view() function](#view-function)
+  - [Demo](#view-function)
 
 
 
 <br/>
 <br/>
 <br/>
+
 
 # Introduction <a name="introduction"></a>
 
