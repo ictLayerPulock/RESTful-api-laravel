@@ -10,6 +10,7 @@
 - [SetUp REST API](#setup_api)
 - [HATEOAS ](#hateoas)
 - [Proper HTTP Headers ](#http_header)
+- [Response Formats ](#response_formats)
 - [HTTP Status Codes ](#status_codes)
 - [Types of Versioning ](#types_versioning)
 - [Clear and consistent naming convention ](#naming_convention)
@@ -230,12 +231,27 @@ HATEOAS is a key constraint in RESTful API design and ensures that resources are
 }
 ```
 
+<br>
+<br>
+
 
  # Proper HTTP Headers <a name="http_header"></a>
 
 - For Additional Info, Cache-Control and Security.
 - Example: Content-Type, Accept, Authorization, etc
 
+<br>
+<br>
+
+ # Response Formats<a name="response_formats"></a>
+
+- Return Responses in a Consistent Format across all endpoints.
+- Easier API Consumption for Clients.
+- Example: JSON
+
+
+<br>
+<br>
 
 
  # HTTP Status Codes <a name="status_codes"></a>
