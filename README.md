@@ -12,6 +12,8 @@
 - [HTTP Status Codes ](#status_codes)
 - [Types of Versioning ](#types_versioning)
 - [Clear and consistent naming convention ](#naming_convention)
+- [Stateless Communications](#stateless_communications)
+- [Cacheability and layered systems](#layered_systems)
 
 
 
@@ -302,3 +304,13 @@ Here are some important guidelines to follow when designing the naming conventio
 - Nest resource if appropriate
 - Use hyphens to separate words
 - Avoid unnecessary abbreviations
+
+
+ # Stateless Communications <a name="stateless_communications"></a>
+
+Server endpoints created from customer designs promote stateless communication by ensuring that they are independent of any client context. This makes it easy to scale web services and handle growing requests.
+
+
+ # Cacheability and layered systems <a name="layered_systems"></a>
+
+Encourages a layered approach to cacheability and system architecture by enabling clients to use caching mechanisms. This results in optimized performance and reduced load on the server.
