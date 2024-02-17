@@ -10,6 +10,7 @@
 - [SetUp REST API](#setup_api)
 - [HATEOAS ](#hateoas)
 - [HTTP Status Codes ](#status_codes)
+- [Types of Versioning ](#types_versioning)
 
 
 
@@ -246,3 +247,33 @@ Indicates that the server cannot process the request due to a client error.
  - 500 - Internal Server Error:
 
 Indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
+
+
+ # Types of Versioning <a name="types_versioning"></a>
+
+### URI Versioning
+
+ - Using the URI is the most straightforward approach (and most commonly used as well) though it does violate the principle that a URI should refer to a unique resource.
+
+ ```bash 
+  http://localhost:8000/api/product/v1
+
+ http://localhost:8000/apiv1/product/v1
+
+ ```
+  - The version need not be numeric, nor specified using the “v[x]” syntax.
+
+ - Alternatives include dates, project names, seasons, or other identifiers that are meaningful enough to the team producing the APIs and flexible enough to change as the versions change.
+
+ ### Versioning using Custom Request Header
+
+  - A custom header (e.g. Accept-version) allows you to preserve your URIs between versions though it is effectively a duplicate of the content negotiation behavior implemented by the existing Accept header.
+
+ ```bash 
+Accept-version: v1
+Accept-version: v2
+
+ ```
+
+
+### Versioning using “Accept” header
