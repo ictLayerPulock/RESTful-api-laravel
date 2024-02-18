@@ -75,7 +75,7 @@ This is a similar protocol to XML-RPC except for the use of JSON instead of XML.
 
 ### For Effectiveness, Maintainability, and Scalability
 
-1. Nouns for Resources: NOT VERBS
+ - 1. Nouns for Resources: NOT VERBS
 To show resources, because verbs show actions.
 Example: /users, /posts, /tasks
 /users/{id}, /posts/{id}, /tasks/{id}
