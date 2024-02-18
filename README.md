@@ -5,7 +5,7 @@
 - [Introduction](#introduction)
 - [Types of APIs](#types)
 - [API Architecture Types](#architecture_types)
-  - [RESTful API Guiding Principles](#guiding_principles)
+- [RESTful API Guiding Principles](#guiding_principles)
 
 
 
