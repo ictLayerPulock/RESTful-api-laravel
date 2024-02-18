@@ -40,7 +40,7 @@ Also called internal APIs or enterprise APIs, private APIs are types of APIs tha
 ### Composite API
 Composite APIs are a combination of data and service are types of APIs that are used to speed up the execution of certain tasks and improve performance. A composite API can enable these calls to run together as a single service if a task uses multiple API endpoints. An example of this could be a shopping cart for an Ecommerce web application.
 
-br/>
+
 <br/>
 
 ## API Architecture Types <a name="architecture_types"></a>
