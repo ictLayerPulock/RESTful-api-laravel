@@ -61,7 +61,7 @@ This is a similar protocol to XML-RPC except for the use of JSON instead of XML.
 
 
 # RESTful API Guiding Principles <a name="guiding_principles"></a>
-
+<hr/>
 ## The Six Guiding Principles of REST
 
  - Uniform Interface
