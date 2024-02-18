@@ -75,81 +75,85 @@ This is a similar protocol to XML-RPC except for the use of JSON instead of XML.
 
 ### For Effectiveness, Maintainability, and Scalability
 
- - 1. Nouns for Resources: NOT VERBS
+#### 1. Nouns for Resources: NOT VERBS
 To show resources, because verbs show actions.
 Example: /users, /posts, /tasks
 /users/{id}, /posts/{id}, /tasks/{id}
 
-Best Practice: 
+##### Best Practice: 
 
 Synonymize a resource with a web page.
 A resource should have links (HATEOAS) pointing to relative URIs to fetch related info.
 
-2. HTTP Methods: 
+#### 2. HTTP Methods: 
 Use GET, POST, PUT, DELETE for CRUD operations on resources.
 
-3. HTTP Status Codes: 
+#### 3. HTTP Status Codes: 
 To show Request Outcome 
-Example: 
+##### Example: 
 200 for success, 
 401 for unauthorized
 404 for not found, 
 400 for bad request, 
 500 for server errors
 
-5. Plural Nouns for Collections:
+#### 5. Plural Nouns for Collections:
 Use plural nouns to show collection of resources.
-Example, /users NOT  /user.
+##### Example, /users NOT  /user.
 
-6. Proper HTTP Headers: 
+#### 6. Proper HTTP Headers: 
 For Additional Info, Cache-Control and Security.
-Example: Content-Type, Accept, Authorization, etc.
+##### Example: Content-Type, Accept, Authorization, etc.
 
-7. Statelessness: 
+#### 7. Statelessness: 
 Each Request will have ALL necessary info for the server. 
 DO NOT store client state on server.
 
-8. Pagination: 
+#### 8. Pagination: 
 For large collections to limit the data amount in a single response.
 Improves Performance.
 Use query parameters like page and limit.
 
-9. Response Formats: 
+#### 9. Response Formats: 
 Return Responses in a Consistent Format across all endpoints.
 Easier API Consumption for Clients.
-Example: JSON
+##### Example: JSON
 
-10. HATEOAS (Hypermedia as the Engine of Application State): 
+#### 10. HATEOAS (Hypermedia as the Engine of Application State): 
 Include hyperlinks in responses for clients for Dynamic API Navigation
 
-Best Practice: Include Cache Destroy API link to ALL API
+##### Best Practice: 
+Include Cache Destroy API link to ALL API
 
-11. Authentication and Authorization:
+#### 11. Authentication and Authorization:
 To secure API endpoints
-Example: Standards like JWT, OAuth
+##### Example: 
+Standards like JWT, OAuth
 
-12. Input Validation: 
+#### 12. Input Validation: 
 Validate and sanitize input data 
 To prevent security vulnerabilities for data integrity.
-Example: Protect against injection attacks
+##### Example: 
+Protect against injection attacks
 
-13. Error Handling: 
+#### 13. Error Handling: 
 Provide meaningful error messages.
 Follow consistent error response formats.
 To help clients in debugging problems.
 
-14. Documentation: 
+#### 14. Documentation: 
 Create proper documentation explaining each endpoint.
-Example: Purpose of the API, Required Parameters, Response Format, Usage Examples
+##### Example: 
+Purpose of the API, Required Parameters, Response Format, Usage Examples
 
-15. Testing: 
+#### 15. Testing: 
 Test the API endpoints using Automated Testing Tools 
 For Functionality, Performance, and Reliability.
 
-15. Compression: 
+#### 15. Compression: 
 Response formats like XML, JSON, HTML, or even plain text can be compressed to save bandwidth.
 
-16. Caching: 
+#### 16. Caching: 
 Client Cache, API Cache, Query Cache
 
 
