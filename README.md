@@ -5,18 +5,8 @@
 - [Introduction](#introduction)
 - [Types of APIs](#types)
 - [API Architecture Types](#architecture_types)
- - [Guiding Principles](#guiding_principles)
-- [Types of Method](#method_types)
-- [SetUp REST API](#setup_api)
-- [HATEOAS ](#hateoas)
-- [Proper HTTP Headers ](#http_header)
-- [Response Formats ](#response_formats)
-- [HTTP Status Codes ](#status_codes)
-- [Types of Versioning ](#types_versioning)
-- [Clear and consistent naming convention ](#naming_convention)
-- [Stateless](#stateless_communications)
-- [Layered systems](#layered_systems)
-- [Cacheability systems](#cacheability_systems)
+  - [RESTful API Guiding Principles](#guiding_principles)
+
 
 
 
@@ -70,7 +60,7 @@ XML stands for “Extensible Markup Language,” and RPC stands for “Remote Pr
 This is a similar protocol to XML-RPC except for the use of JSON instead of XML.
 
 
-# Guiding Principles <a name="guiding_principles"></a>
+# RESTful API Guiding Principles <a name="guiding_principles"></a>
 
 ## The Six Guiding Principles of REST
 
@@ -82,272 +72,86 @@ This is a similar protocol to XML-RPC except for the use of JSON instead of XML.
  - Code on Demand (Optional)
 
 <br/>
-<br/>
 
+### For Effectiveness, Maintainability, and Scalability
 
-# Types of Method <a name="method_types"></a>
+1. Nouns for Resources: NOT VERBS
+To show resources, because verbs show actions.
+Example: /users, /posts, /tasks
+/users/{id}, /posts/{id}, /tasks/{id}
 
-### GET Method: 
-The most common HTTP method is GET, which returns a representational view of a resource's contents and data. GET should be used in read-only mode, which keeps the data safe and the resource idempotent.
-We can get two type of api route for get method, Generaly get-method like 
+Best Practice: 
 
-```bash
-Route::get('/product', [ProductController::class, 'index']);
-```
- - This api  ` http://localhost:8000/api/product `
+Synonymize a resource with a web page.
+A resource should have links (HATEOAS) pointing to relative URIs to fetch related info.
 
+2. HTTP Methods: 
+Use GET, POST, PUT, DELETE for CRUD operations on resources.
 
+3. HTTP Status Codes: 
+To show Request Outcome 
+Example: 
+200 for success, 
+401 for unauthorized
+404 for not found, 
+400 for bad request, 
+500 for server errors
 
-Another for resource method as like 
+5. Plural Nouns for Collections:
+Use plural nouns to show collection of resources.
+Example, /users NOT  /user.
 
-```bash
-Route::resource('/product', ProductController::class);
-```
+6. Proper HTTP Headers: 
+For Additional Info, Cache-Control and Security.
+Example: Content-Type, Accept, Authorization, etc.
 
- - This api  ` http://localhost:8000/api/product `
+7. Statelessness: 
+Each Request will have ALL necessary info for the server. 
+DO NOT store client state on server.
 
+8. Pagination: 
+For large collections to limit the data amount in a single response.
+Improves Performance.
+Use query parameters like page and limit.
 
- 
-### POST Method: 
-POST is the only RESTful API HTTP method that primarily operates on resource collections. When we menualy routing as like, 
+9. Response Formats: 
+Return Responses in a Consistent Format across all endpoints.
+Easier API Consumption for Clients.
+Example: JSON
 
-```bash
-Route::post('/product-store', [ProductController::class, 'store']);
-```
- - This api  ` http://localhost:8000/api/product-store `
+10. HATEOAS (Hypermedia as the Engine of Application State): 
+Include hyperlinks in responses for clients for Dynamic API Navigation
 
+Best Practice: Include Cache Destroy API link to ALL API
 
+11. Authentication and Authorization:
+To secure API endpoints
+Example: Standards like JWT, OAuth
 
-Another for resource method as like 
+12. Input Validation: 
+Validate and sanitize input data 
+To prevent security vulnerabilities for data integrity.
+Example: Protect against injection attacks
 
-```bash
-Route::resource('/product', ProductController::class);
-```
+13. Error Handling: 
+Provide meaningful error messages.
+Follow consistent error response formats.
+To help clients in debugging problems.
 
- - This api  ` http://localhost:8000/api/product `
+14. Documentation: 
+Create proper documentation explaining each endpoint.
+Example: Purpose of the API, Required Parameters, Response Format, Usage Examples
 
+15. Testing: 
+Test the API endpoints using Automated Testing Tools 
+For Functionality, Performance, and Reliability.
 
-  
-### PUT Method: 
-Completely updates an existing resource by replacing it with new data. When we menualy routing as like, 
+15. Compression: 
+Response formats like XML, JSON, HTML, or even plain text can be compressed to save bandwidth.
 
-```bash
-Route::put('/product-edit/{id}', [ProductController::class, 'edit']);
-```
- - This api  ` http://localhost:8000/api/product-edit `
+16. Caching: 
+Client Cache, API Cache, Query Cache
 
 
 
-Another for resource method as like 
 
-```bash
-Route::resource('/product', ProductController::class);
-```
-
- - This api  ` http://localhost:8000/api/product `
-
-
-### PATCH Method: 
-Partially updates a resource with specified changes. When we menualy routing as like, 
-
-```bash
-Route::patch('/product-update/{id}', [ProductController::class, 'update']);
-```
- - This api  ` http://localhost:8000/api/product-update `
-
-
-
-Another for resource method as like 
-
-```bash
-Route::resource('/product', ProductController::class);
-```
-
- - This api  ` http://localhost:8000/api/product `
-
-
-### DELETE Method: 
-The last HTTP method to examine is DELETE. When a DELETE method targets a single resource, that resource is removed entirely. When we menualy routing as like, 
-
-```bash
-Route::patch('/product-delete/{id}', [ProductController::class, 'delete']);
-```
- - This api  ` http://localhost:8000/api/product-delete `
-
-
-
-Another for resource method as like 
-
-```bash
-Route::resource('/product', ProductController::class);
-```
-
- - This api  ` http://localhost:8000/api/product `
-
-
-
-
-# SetUp REST API <a name="setup_api"></a>
-
- - Identify Object
- The first step in designing a REST API-based application is identifying the objects that will be presented as resources.
-
- - Create Model URIs
-Now when the object model is ready, it’s time to decide the resource URIs. 
-
-```bash
-
-/product
-/product/{id}
-
-```
-
- - Caching in REST APIs
- Being cacheable is one of the architectural constraints of REST.
-
-  - GET requests should be cachable by default – until a special condition arises. Usually, browsers treat all GET requests as cacheable.
-  - POST requests are not cacheable by default but can be made cacheable if either an Expires header or a Cache-Control header with a directive, to explicitly allows caching, is added to the response.
-  - Responses to PUT and DELETE requests are not cacheable at all.
-
- - Cache Control Headers
-
-
- # HATEOAS - Hypermedia as an Engine of Application State <a name="hateoas"></a>
-
-HATEOAS is a key constraint in RESTful API design and ensures that resources are interconnected through hypermedia links
-
-```json
-{
-  "orderId": 12345,
-  "Total Amount": 99.99,
-  "_links": {
-    "self": {
-      "href": "https://api.example.com/orders/12345"
-    },
-    "buyer": {
-      "href": "https://api.example.com/customers/54321"
-    }
-  }
-}
-```
-
-<br>
-<br>
-
-
- # Proper HTTP Headers <a name="http_header"></a>
-
-- For Additional Info, Cache-Control and Security.
-- Example: Content-Type, Accept, Authorization, etc
-
-<br>
-<br>
-
- # Response Formats<a name="response_formats"></a>
-
-- Return Responses in a Consistent Format across all endpoints.
-- Easier API Consumption for Clients.
-- Example: JSON
-
-
-<br>
-<br>
-
-
- # HTTP Status Codes <a name="status_codes"></a>
-
-These status codes are part of the HTTP protocol and are used by servers to communicate the outcome of a request to the client. They help developers and users understand what happened during the request and how to proceed accordingly.
-
- - 200 - OK:
- ```php
-   return response()->json([
-            'data'=> $data,
-            'message'=>"request has succeeded",
-            'code'=> 200
-         ]);
-```
-
-Indicates that the request has succeeded.
-It is typically used for successful GET requests or successful responses to POST, PUT, and DELETE requests.
-
-
- - 302 Found Redirect Responses:
-
-These responses indicate that the client needs to take additional action to complete the request.
-Example: 301 Moved Permanently, 302 Found
-
-
- - 404 - Not Found:
-
-Indicates that the requested resource could not be found.
-It is typically used when the server cannot find the requested resource or URL.
-
- - 400 - Bad Request:
-
-Indicates that the server cannot process the request due to a client error.
-
- - 500 - Internal Server Error:
-
-Indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
-
-
- # Types of Versioning <a name="types_versioning"></a>
-
-### URI Versioning
-
- - Using the URI is the most straightforward approach (and most commonly used as well) though it does violate the principle that a URI should refer to a unique resource.
-
- ```bash 
-  http://localhost:8000/api/product/v1
-
- http://localhost:8000/apiv1/product/v1
-
- ```
-  - The version need not be numeric, nor specified using the “v[x]” syntax.
-
- - Alternatives include dates, project names, seasons, or other identifiers that are meaningful enough to the team producing the APIs and flexible enough to change as the versions change.
-
- 
-
- # Clear and consistent naming convention <a name="naming_convention"></a>
-
-Here are some important guidelines to follow when designing the naming conventions of your REST API:
-
- - Use resource nouns: Focus on the resources you express and their relationships rather than specific activities. Use plural nouns (eg, /products, /users) to represent collections of resources and avoid using verbs (eg, /getProducts, /createUser).
- - Keep URLs simple and predictable: Design URLs that are intuitive and easily understood by clients, using resource hierarchies to express relationships (eg, /users/{id}/orders).
- 
- - Plural Nouns for Collections: Use plural nouns to show collection of resources. Example, /users NOT  /user.
-- Use lowercase letters
-- Nest resource if appropriate
-- Use hyphens to separate words
-- Avoid unnecessary abbreviations
-
-
- # Stateless <a name="stateless_communications"></a>
-
-Server endpoints created from customer designs promote stateless communication by ensuring that they are independent of any client context. This makes it easy to scale web services and handle growing requests.
-
-
- # Layered systems <a name="layered_systems"></a>
-
-A layered system architecture separates concerns into different layers, such as the user interface, business logic, and data access layers in a typical N-tier web application.
-
-
-
- # Cacheability systems <a name="cacheability_systems"></a>
-
-Caching is the ability to store copies of frequently accessed data in several places along the request-response path.
-
-```php
-
-use App\Models\Product;
-use Illuminate\Support\Facades\Cache;
-
-....
-
-    public function index(){
-       return Cache::remember('cases', 60, function(){
-        return Product::all();
-       });
-    }
-```
