@@ -159,4 +159,6 @@ Client Cache, API Cache, Query Cache
 
 
 
+#### 17. Value & Time: 
+Client , API and Query for time and value take same.
 
